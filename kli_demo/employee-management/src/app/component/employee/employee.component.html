@@ -1,0 +1,85 @@
+<div class="dialog-container">
+
+  <!-- HEADER -->
+  <div class="dialog-header">
+    <h2>Employee Form</h2>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- FORM -->
+  <form [formGroup]="employeeForm" class="form-body">
+
+    <div class="grid">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee ID</mat-label>
+        <input matInput formControlName="empId">
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Name</mat-label>
+        <input matInput formControlName="empName">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Aadhaar No</mat-label>
+        <input matInput formControlName="adhar">
+        <mat-icon matSuffix>credit_card</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone">
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput formControlName="gender">
+        <mat-icon matSuffix>wc</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input matInput formControlName="state">
+        <mat-icon matSuffix>location_on</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country">
+        <mat-icon matSuffix>public</mat-icon>
+      </mat-form-field>
+
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Address</mat-label>
+      <textarea matInput rows="3" formControlName="address"></textarea>
+    </mat-form-field>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      <button mat-flat-button color="primary"
+              (click)="submit()"
+              [disabled]="employeeForm.invalid">
+        Submit
+      </button>
+
+      <button mat-stroked-button (click)="close()">
+        Cancel
+      </button>
+    </div>
+
+  </form>
+</div>

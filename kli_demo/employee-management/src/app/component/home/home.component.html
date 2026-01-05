@@ -1,0 +1,92 @@
+<div class="home-container">
+
+  <!-- HEADING -->
+
+  <!-- SEARCH + ADD -->
+  <div class="toolbar-row">
+
+    <mat-form-field appearance="fill" class="search-box">
+      <input matInput placeholder="Search Employee Here" (keyup)="applyFilter($event)">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="add-btn" (click)="openAddEmployee()">
+      Add +
+    </button>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-container mat-elevation-z2">
+
+    <div class="table-scroll">
+      <table mat-table [dataSource]="dataSource" class="emp-table">
+
+
+        <!-- Emp ID -->
+        <ng-container matColumnDef="empId">
+          <th mat-header-cell *matHeaderCellDef>Emp ID</th>
+          <td mat-cell *matCellDef="let e">{{ e.empId }}</td>
+        </ng-container>
+
+        <!-- Emp Name -->
+        <ng-container matColumnDef="empName">
+          <th mat-header-cell *matHeaderCellDef>Emp Name</th>
+          <td mat-cell *matCellDef="let e">{{ e.empName }}</td>
+        </ng-container>
+
+        <!-- Aadhaar -->
+        <ng-container matColumnDef="adhar">
+          <th mat-header-cell *matHeaderCellDef>Aadhaar No.</th>
+          <td mat-cell *matCellDef="let e">{{ e.adhar }}</td>
+        </ng-container>
+
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let e">{{ e.email }}</td>
+        </ng-container>
+
+        <!-- Phone -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let e">{{ e.phone }}</td>
+        </ng-container>
+
+        <!-- Address -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let e">{{ e.address }}</td>
+        </ng-container>
+
+        <!-- Gender -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef>Gender</th>
+          <td mat-cell *matCellDef="let e">{{ e.gender }}</td>
+        </ng-container>
+
+        <!-- Country -->
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef>Country</th>
+          <td mat-cell *matCellDef="let e">{{ e.country }}</td>
+        </ng-container>
+
+        <!-- State -->
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef>State</th>
+          <td mat-cell *matCellDef="let e">{{ e.state }}</td>
+        </ng-container>
+
+        <!-- Header & Row -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      </table>
+    </div>
+
+    <!-- PAGINATOR -->
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+    </mat-paginator>
+
+  </div>
+
+</div>
